@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rend/Api.dart';
-import 'package:rend/login.dart';
-import 'package:rend/globals.dart';
-import 'dart:convert';
 
 class Verify extends  StatelessWidget {
   TextEditingController firstName = new TextEditingController();
