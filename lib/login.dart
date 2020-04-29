@@ -1,14 +1,8 @@
-import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:rend/signup.dart';
-import 'package:http/http.dart' as http;
-import 'package:alice/alice.dart';
-import 'package:rend/AgentPage.dart';
 import 'package:rend/dashboard.dart';
 import 'package:rend/user.dart';
 import 'package:rend/Api.dart';
-
 import 'package:rend/globals.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,23 +11,34 @@ class LoginPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<LoginPage> {
+  final TextEditingController _controller = TextEditingController();
   TextEditingController user = new TextEditingController();
   TextEditingController pass = new TextEditingController();
   String msg = '';
   User usea = User();
-  // void lg () async{
-  //   var tex = await Api().lg(user.text, pass.text);
-  //   print(tex);
-  //   var  tMap = json.decode(tex);
-  //   setState(() {
-  //     usea = User.fromJson(tMap);
-  //   });
-  // }
-  // @override
-  // void intState(){
-  //   super.initState();
-  //   lg();
-  // }
+
+    Future<String> createAlertDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("error"),
+          titlePadding: EdgeInsets.all(20.0),
+          content:Text("invalid credentials"),
+          contentPadding: EdgeInsets.all(20.0),
+          actions: <Widget>[
+            MaterialButton(onPressed: () {
+              // Navigator.of(context).pop(_controller.text.toString());
+            }, child: Text("cancle"),),
+            MaterialButton(onPressed: () {
+              Navigator.pushReplacementNamed(context, '/MyHomePage');
+            }, child: Text("try again?"),),
+          ],
+        );
+      },
+    );
+  }
+
   Widget build(BuildContext context) {
     TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
     final flatbtn = Material(
@@ -81,25 +86,33 @@ class _MyHomePageState extends State<LoginPage> {
                 RaisedButton(
                   child: Text("Login"),
                   onPressed: () async {
-                    var tex = await Api().login(user.text, pass.text);
+                    Map a ={"username":user.text,"password":pass.text};
+                    var tex = await Api().all("http://176.58.113.106:80/api/login",a);
                     print("tex $tex");
-                     var  tMap = json.decode(tex);
+                    var tMap = json.decode(tex);
                     setState(() {
-                      usea = User.fromJson(tMap); 
-                      });         
+                      usea = User.fromJson(tMap);
+                    });
                     if (usea.success == "true") {
-                      Globals.email = usea.email;     
-                      Globals.username =usea.firstname;
+                      Globals.email = usea.email;
+                      Globals.username = usea.firstname;
                       Globals.secondname = usea.secondname;
+                      Globals.loanBalance = usea.loanBalance;
+                      Globals.token =usea.token;
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Dash( username:usea.firstname,
-                        )),
+                        MaterialPageRoute(
+                          builder: (context) => Dash(
+                                  username: usea.firstname,
+                                )),
                       );
+
                       setState(() {
                         Globals.username = "Admin";
                       });
-                    } else {}
+                    } else {
+                     createAlertDialog(context);
+                    }
                   },
                 ),
                 SizedBox(

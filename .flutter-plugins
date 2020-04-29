@@ -1,14 +1,4 @@
 # This is a generated file; do not edit or check into version control.
-alice=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/alice-0.0.23/
-flutter_local_notifications=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-1.2.1/
-open_file=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/open_file-3.0.1/
-package_info=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.4.0+14/
-path_provider=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.5/
-path_provider_macos=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4/
-permission_handler=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-4.3.0/
-screen=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/screen-0.0.5/
-sensors=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/sensors-0.4.1+8/
-share=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.3+6/
-shared_preferences=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.4.3/
-video_player=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.10.8+1/
-video_player_web=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/video_player_web-0.1.2+1/
+camera=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.5.7+4/
+path_provider=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.7/
+path_provider_macos=/home/ed/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+1/

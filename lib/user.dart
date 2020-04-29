@@ -14,6 +14,8 @@ class User  {
    int phoneNumber;
    String success;
    String message;
+   double loanBalance;
+   String token;
 
   User({this.firstname,this.secondname,this.lastname,this.username,this.email,this.phoneNumber,this.message,this.success});
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -26,7 +28,6 @@ class UserSession {
   String token;
   int number;
   int loanamount;
-
   String loanAdvisory;
   int loancode;
   int loanlimit;

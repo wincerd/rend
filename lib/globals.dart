@@ -5,7 +5,7 @@ class Globals {
   static String username;
   static String success;
   static String loanlimit;
-  static String loanBalance;
+  static double loanBalance = 0;
   static String advice;
   static String email;
   static String secondname;

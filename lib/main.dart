@@ -4,6 +4,8 @@ import 'package:rend/login.dart';
 import 'package:rend/dashboard.dart';
 import 'package:rend/globals.dart';
 import 'package:rend/Verify.dart';
+import 'package:rend/Lending.dart';
+import 'package:rend/repay.dart';
 
 
 void main() => runApp(new MyApp());
@@ -11,7 +13,7 @@ void main() => runApp(new MyApp());
 bool logons = false;
 class MyApp extends StatelessWidget {
   var  username = Globals.username; 
-  var home;
+  var home;                                                                                                 
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/Signup': (BuildContext context) => new Signup(),
         '/MyHomePage': (BuildContext context) => new LoginPage(),
         '/verify':(BuildContext context) => new Verify(),
+        '/borrow':(BuildContext context) => new Borrow(),
+        '/repay':(BuildContext context) => new Repay(), 
       },
     );
   }
