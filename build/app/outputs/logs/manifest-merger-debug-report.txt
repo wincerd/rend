@@ -7,6 +7,7 @@ INJECTED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml
 MERGED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml:1:1-33:12
 MERGED from [:path_provider] /home/ed/Development/rend/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_macos] /home/ed/Development/rend/build/path_provider_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] /home/ed/Development/rend/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-10:12
 MERGED from [androidx.fragment:fragment:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/b8b68c04ee72209a3beca37e17f7088d/fragment-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/f046f38cf99e9cbe4891b184ce64db19/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -106,6 +107,8 @@ MERGED from [:path_provider] /home/ed/Development/rend/build/path_provider/inter
 MERGED from [:path_provider] /home/ed/Development/rend/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_macos] /home/ed/Development/rend/build/path_provider_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_macos] /home/ed/Development/rend/build/path_provider_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /home/ed/Development/rend/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /home/ed/Development/rend/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/b8b68c04ee72209a3beca37e17f7088d/fragment-1.0.0/AndroidManifest.xml:20:5-44

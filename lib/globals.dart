@@ -5,8 +5,10 @@ class Globals {
   static String username;
   static String success;
   static String loanlimit;
-  static double loanBalance = 0;
+  static String loanBalance;
   static String advice;
   static String email;
   static String secondname;
+  static double blc;
+  static Map userz;
 }

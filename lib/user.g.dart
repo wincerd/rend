@@ -16,6 +16,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
     phoneNumber: json['phoneNumber'] as int,
     message: json['message'] as String,
     success: json['success'] as String,
+    loanBalance: json['loanBalance'] as String,
+    token: json['token'] as String,
+    id: json['id'] as int,
   );
 }
 
@@ -28,6 +31,9 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'phoneNumber': instance.phoneNumber,
       'success': instance.success,
       'message': instance.message,
+      'loanBalance': instance.loanBalance,
+      'token': instance.token,
+      'id': instance.id,
     };
 
 UserSession _$UserSessionFromJson(Map<String, dynamic> json) {

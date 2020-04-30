@@ -1,14 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:http/http.dart';
 import 'package:rend/globals.dart';
+import 'package:rend/repay.dart';
 
 class Api{
+
   static const String base_url = 'http://176.58.113.106:80/';
   static const String lgin = base_url + "api/login";
   static const String reg = base_url + 'api/user';
-  static const String  bor = base_url + "/api/borrow/";
+  static const String  bor = base_url + "api/borrow/" ;
+  static const String  repy = base_url + "api/chargerequest/" ;
+
 
 Future all(String url , Map a) async{
   Map body= a;
@@ -88,11 +91,30 @@ Future all(String url , Map a) async{
       throw Exception('Failed to signup');
     }
   }
- Future  borrow(String userId,String lastName, String requestedAmount,String phoneNumber ) async {
-    Map body = {"userId":userId,"userName":lastName,
-    "requestedAmount":requestedAmount,"requestedAmount":requestedAmount,"phoneNumber":phoneNumber};
+ Future  borrow(int userId,String username, int requestedAmount,int phoneNumber,String currencyCode ) async {
+    Map body = {"userId":userId,"userName":username,
+    "requestedAmount":requestedAmount,"phoneNumber":phoneNumber,"currencyCode":currencyCode};
     var b = json.encode(body);
-    final response = await post(bor,
+    print(b);
+    var url = bor +  Globals.token;
+    final response = await post(url,
+        headers: {"Content-Type": "application/json; charset=UTF-8"}, body: b);
+    if (response.statusCode == 200) {
+       final json = jsonDecode(response.body); 
+       Globals.success = json["success"];
+       return response.body;
+    }
+    else{
+      print(response.statusCode);
+      throw Exception('Failed to signup');
+    }
+  }
+  Future  repay (int userId,String username,int payAmount,int phoneNumber,String currencyCode ) async {
+    Map body = {"userId":userId,"userName":username,
+    "amount":payAmount,"phoneNumber":phoneNumber,"currencyCode":currencyCode};
+    var b = json.encode(body);
+    var url = repy +  Globals.token;
+    final response = await post(url,
         headers: {"Content-Type": "application/json; charset=UTF-8"}, body: b);
     if (response.statusCode == 200) {
        final json = jsonDecode(response.body); 

@@ -90,8 +90,10 @@ class _MyHomePageState extends State<LoginPage> {
                     var tex = await Api().all("http://176.58.113.106:80/api/login",a);
                     print("tex $tex");
                     var tMap = json.decode(tex);
-                    setState(() {
+                    setState(() { 
                       usea = User.fromJson(tMap);
+                      print(usea);
+                      Globals.userz = tMap;
                     });
                     if (usea.success == "true") {
                       Globals.email = usea.email;
@@ -99,6 +101,7 @@ class _MyHomePageState extends State<LoginPage> {
                       Globals.secondname = usea.secondname;
                       Globals.loanBalance = usea.loanBalance;
                       Globals.token =usea.token;
+                      Globals.blc = double.parse(Globals.loanBalance);
                       Navigator.push(
                         context,
                         MaterialPageRoute(

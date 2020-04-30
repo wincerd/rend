@@ -1,14 +1,19 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:rend/globals.dart';
 import 'package:rend/appB.dart';
 import 'package:rend/Api.dart';
 import 'dart:async';
 import 'dart:convert';
+import 'package:rend/user.dart';
+
 
 class Borrow extends StatelessWidget {
+
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   TextEditingController firstName = new TextEditingController();
-  var balance = Globals.loanBalance;
+  var balance = Globals.blc;
   Future<String> createAlertDialog(BuildContext context) {
     return showDialog(
       context: context,
@@ -33,14 +38,17 @@ class Borrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      var a = User().loanBalance;
+      print("loa $a");
+      
     final firstname = TextFormField(
       textCapitalization: TextCapitalization.words,
       controller: firstName,
       decoration: const InputDecoration(
         border: UnderlineInputBorder(),
         icon: Icon(Icons.person),
-        hintText: 'Whats your first name?',
-        labelText: 'First Name *',
+        hintText: 'Whats amount do you want?',
+        labelText: 'loan amount*',
       ),
     );
     final reqestBtn = Material(
@@ -54,10 +62,20 @@ class Borrow extends StatelessWidget {
             if (balance > 0) {
               createAlertDialog(context);
             } else {
-              var tex = await Api().borrow(firstName.text,Globals.username,Globals.username
-              ,Globals.username);
-              var tMap = json.decode(tex);
-
+              var user = User.fromJson(Globals.userz);
+              var usernm= user.username;
+              var userId = user.id;
+              var phone = user.phoneNumber;
+              var currency = "ksh";
+              Map tex = await Api().borrow(userId,phone.toString(),int.parse(firstName.text),
+              phone,currency);
+              if(tex["success"] == false ){
+                print("pay existing loan");
+              }
+              else{
+                Globals.loanBalance = tex["loanbalance"];
+                print("tex $tex");
+              }
             }
           },
           child: Text(

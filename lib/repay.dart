@@ -3,7 +3,7 @@ import 'package:rend/globals.dart';
 import 'package:rend/appB.dart';
 import 'package:rend/Api.dart';
 import 'dart:async';
-import 'dart:convert';
+import 'package:rend/user.dart';
 
 class Repay extends StatelessWidget {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
@@ -52,9 +52,20 @@ class Repay extends StatelessWidget {
           minWidth: 100,
           padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           onPressed: () async {
-              var tex = await Api().borrow(firstName.text,Globals.username,Globals.username
-              ,Globals.username);
-              var tMap = json.decode(tex);
+              var user = User.fromJson(Globals.userz);
+              var usernm= user.username;
+              var userId = user.id;
+              var phone = user.phoneNumber;
+              var currency = "ksh";
+              Map tex = await Api().repay(userId,phone.toString(),int.parse(firstName.text),
+              phone,currency);
+              if(tex["success"] == false ){
+                print("pay existing loan");
+              }
+              else{
+                Globals.loanBalance = tex["loanbalance"];
+                print("tex $tex");
+              }
           },
           child: Text(
             "Repay",

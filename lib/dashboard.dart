@@ -9,52 +9,48 @@ class Rtn extends StatefulWidget {
   _RtnState createState() => _RtnState();
 }
 
-class _RtnState extends State<Rtn>{
-
- @override
+class _RtnState extends State<Rtn> {
+  @override
   Widget build(BuildContext context) {
-       final btn1 = ConstrainedBox(
-      constraints:const BoxConstraints(maxWidth: 10),
-      child:
-      MaterialButton(
-      onPressed: () {
-        Navigator.pushReplacementNamed(context, '/borrow');
-      },
-      child: Text("Borrow Loan",
-      style:TextStyle(color: Colors.white)),
-      color:Colors.blueAccent,
-    ),
+    final btn1 = ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 10),
+      child: MaterialButton(
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/borrow');
+        },
+        child: Text("Borrow Loan", style: TextStyle(color: Colors.white)),
+        color: Colors.blueAccent,
+      ),
     );
     final btn2 = ConstrainedBox(
-      constraints:const BoxConstraints(maxWidth: 10),
-      child:
-      MaterialButton(
-      onPressed: () {
-        Navigator.pushReplacementNamed(context, '/repay');
-      },
-    child: Text("Pay loan",
-      style:TextStyle(color: Colors.white)),
-      color:Colors.blueAccent,
-    ),
+      constraints: const BoxConstraints(maxWidth: 10),
+      child: MaterialButton(
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/repay');
+        },
+        child: Text("Pay loan", style: TextStyle(color: Colors.white)),
+        color: Colors.blueAccent,
+      ),
     );
-    if(Globals.loanBalance > 0){
-    return btn1;
-    }
-    else{
-       return btn2;
+    if (Globals.blc > 0 == false) {
+      return btn1;
+    } else {
+      return btn2;
     }
   }
 }
+
 class Dash extends StatefulWidget {
   Dash({this.username});
   final String username;
   @override
   _DashState createState() => _DashState();
 }
+
 class _DashState extends State<Dash> {
- @override
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea(
       child: Scaffold(
         drawer: Drawer(
           child: Column(
@@ -66,39 +62,30 @@ class _DashState extends State<Dash> {
                 iconTheme: IconThemeData(color: Colors.blue),
               ),
               UserAccountsDrawerHeader(
-                accountName: Text(Globals.username+" "+Globals.secondname),
+                accountName: Text(Globals.username + " " + Globals.secondname),
                 accountEmail: Text(Globals.email),
                 currentAccountPicture: CircleAvatar(
                     // backgroundImage:  AssetImage("images/profie.jpeg"),
                     ),
               ),
-               SizedBox(height: 250),
-               ListTile(         
-                title: Text(
-                  "Verify" 
-                  ),
+              SizedBox(height: 250),
+              ListTile(
+                title: Text("Verify"),
                 onTap: () {
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Verify() 
-                        ),
-                      );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Verify()),
+                  );
                 },
               ),
-             
-              ListTile(         
-                title: Text(
-                  "Logout"
-                  ),
-                onTap: () {
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage() 
-                        ),
-                      );                      
-                }  
-              ),
-
+              ListTile(
+                  title: Text("Logout"),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  }),
             ],
           ),
         ),
@@ -115,41 +102,46 @@ class _DashState extends State<Dash> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Column(
-                      children:<Widget>[
-                        Row(
+                    Column(children: <Widget>[
+                      Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children:<Widget>[
-                          Column(
-                            children:<Widget>[
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children:<Widget>[
-                            Text("Loan Balance"),
-                          SizedBox(width: 95,),
-                          Text((Globals.loanBalance).toString()),
-                          ],
-                          ),
-                          SizedBox(height: 30,),
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children:<Widget>[
-                          Text("Due date"),
-                          SizedBox(width: 80,),
-                          Text("18/04/2022"),
-                          ],
-                          ),
-                          ],
-                          ),
-                          ]
-                        )
-                      ]
-                    ),
+                          children: <Widget>[
+                            Column(
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text("Loan Balance"),
+                                    SizedBox(
+                                      width: 95,
+                                    ),
+                                    Text((Globals.loanBalance).toString()),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text("Due date"),
+                                    SizedBox(
+                                      width: 80,
+                                    ),
+                                    Text("18/04/2022"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ])
+                    ]),
                     Rtn(),
-                    SizedBox(height: 100,),
+                    SizedBox(
+                      height: 100,
+                    ),
                   ],
-                ),   
+                ),
               ),
               Card(
                 child: Column(
@@ -166,8 +158,7 @@ class _DashState extends State<Dash> {
                     const ListTile(
                       leading: Icon(Icons.album),
                       title: Text('Loan status'),
-                      subtitle:
-                          Text('we are following up with.......'),
+                      subtitle: Text('we are following up with.......'),
                     ),
                     ButtonBar(
                       children: <Widget>[
