@@ -4,28 +4,35 @@ import 'package:rend/appB.dart';
 import 'package:rend/Api.dart';
 import 'dart:async';
 import 'package:rend/user.dart';
+import 'package:rend/dashboard.dart';
 
 class Repay extends StatelessWidget {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   TextEditingController firstName = new TextEditingController();
 
   var balance = Globals.loanBalance;
-      Future<String> createAlertDialog(BuildContext context) {
+  Future<String> createAlertDialog(BuildContext context) {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("error"),
           titlePadding: EdgeInsets.all(20.0),
-          content:Text("Please pay existing loan"),
+          content: Text("Please pay existing loan"),
           contentPadding: EdgeInsets.all(20.0),
           actions: <Widget>[
-            MaterialButton(onPressed: () {
-              // Navigator.of(context).pop(_controller.text.toString());
-            }, child: Text("cancle"),),
-            MaterialButton(onPressed: () {
-              Navigator.pushReplacementNamed(context, '/MyHomePage');
-            }, child: Text("try again?"),),
+            MaterialButton(
+              onPressed: () {
+                // Navigator.of(context).pop(_controller.text.toString());
+              },
+              child: Text("cancle"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/MyHomePage');
+              },
+              child: Text("try again?"),
+            ),
           ],
         );
       },
@@ -52,20 +59,37 @@ class Repay extends StatelessWidget {
           minWidth: 100,
           padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           onPressed: () async {
-              var user = User.fromJson(Globals.userz);
-              var usernm= user.username;
-              var userId = user.id;
-              var phone = user.phoneNumber;
-              var currency = "ksh";
-              Map tex = await Api().repay(userId,phone.toString(),int.parse(firstName.text),
-              phone,currency);
-              if(tex["success"] == false ){
-                print("pay existing loan");
-              }
-              else{
-                Globals.loanBalance = tex["loanbalance"];
-                print("tex $tex");
-              }
+            var user = User.fromJson(Globals.userz);
+            var userId = user.id;
+            var phone = user.phoneNumber;
+            var loanid = user.loanid;
+            print("loanid $loanid");
+            Map rep = await Api().repay(userId, phone.toString(),
+                int.parse(firstName.text), phone, loanid);
+            if (rep["success"] == false) {
+              print("pay existing loan");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Dash(
+                    username: "name",
+                  ),
+                ),
+              );
+            } else {
+              Globals.loanBalance = (rep["balance"]).toString();
+              print(Globals.loanBalance);
+              print("rep $rep");
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Dash(
+                    username: "name",
+                    balance:Globals.blc,
+                  ),
+                ),
+              );
+            }
           },
           child: Text(
             "Repay",
@@ -76,18 +100,19 @@ class Repay extends StatelessWidget {
         ));
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Repay'),
-        ),      
+        title: const Text('Repay'),
+      ),
       drawer: Appb(),
-      body:
-      Column(
-        children:<Widget>[
-          SizedBox(height: 50,),
-          firstname,
-          SizedBox(height: 50,),
-          reqestBtn,
-        ]
-      ) ,
+      body: Column(children: <Widget>[
+        SizedBox(
+          height: 50,
+        ),
+        firstname,
+        SizedBox(
+          height: 50,
+        ),
+        reqestBtn,
+      ]),
     );
   }
 }

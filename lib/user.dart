@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 import 'package:json_annotation/json_annotation.dart';
 
@@ -11,12 +11,13 @@ class User {
   String lastname;
   String username;
   String email;
-  int phoneNumber;
+  String phoneNumber;
   String success;
   String message;
   String loanBalance;
   String token;
   int id;
+  String loanid;
 
   User(
       {this.firstname,

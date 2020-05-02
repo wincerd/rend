@@ -1,4 +1,4 @@
-import 'user.dart';
+
 
 class Globals {
   static String token; //oauth token
@@ -9,6 +9,9 @@ class Globals {
   static String advice;
   static String email;
   static String secondname;
-  static double blc;
+  static int blc;
   static Map userz;
+  static String loanid;
+  static Map z;
+
 }

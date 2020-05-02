@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:rend/globals.dart';
-import 'package:rend/repay.dart';
+
 
 class Api{
 
@@ -10,7 +10,7 @@ class Api{
   static const String lgin = base_url + "api/login";
   static const String reg = base_url + 'api/user';
   static const String  bor = base_url + "api/borrow/" ;
-  static const String  repy = base_url + "api/chargerequest/" ;
+  static const String  repy = base_url + "api/chargerequest/";
 
 
 Future all(String url , Map a) async{
@@ -39,7 +39,7 @@ Future all(String url , Map a) async{
        var res  =response.body;
        final json = jsonDecode(response.body);
        print(json);
-       Globals.success = json["success"];
+       Globals.success = json["success"];      
     return res;
     }
     else{
@@ -79,19 +79,18 @@ Future all(String url , Map a) async{
     var b = json.encode(body);
     print("url is, $reg");
     final response = await post(reg,
-
         headers: {"Content-Type": "application/json; charset=UTF-8"}, body: b);
     if (response.statusCode == 200) {
-       final json = jsonDecode(response.body); 
-       Globals.success = json["success"];
-       return response.body;
+       final j = jsonDecode(response.body); 
+       Globals.success = j["success"];
+       return j;
     }
     else{
       print(response.statusCode);
       throw Exception('Failed to signup');
     }
   }
- Future  borrow(int userId,String username, int requestedAmount,int phoneNumber,String currencyCode ) async {
+ Future  borrow(int userId,String username, int requestedAmount,String phoneNumber,String currencyCode ) async {
     Map body = {"userId":userId,"userName":username,
     "requestedAmount":requestedAmount,"phoneNumber":phoneNumber,"currencyCode":currencyCode};
     var b = json.encode(body);
@@ -100,26 +99,25 @@ Future all(String url , Map a) async{
     final response = await post(url,
         headers: {"Content-Type": "application/json; charset=UTF-8"}, body: b);
     if (response.statusCode == 200) {
-       final json = jsonDecode(response.body); 
-       Globals.success = json["success"];
-       return response.body;
+       final results = jsonDecode(response.body); 
+       return results;
     }
     else{
       print(response.statusCode);
       throw Exception('Failed to signup');
     }
   }
-  Future  repay (int userId,String username,int payAmount,int phoneNumber,String currencyCode ) async {
+  Future  repay (int userId,String username,int payAmount,String phoneNumber,String loanid) async {
     Map body = {"userId":userId,"userName":username,
-    "amount":payAmount,"phoneNumber":phoneNumber,"currencyCode":currencyCode};
+    "amount":payAmount,"phoneNumber":phoneNumber,"loanid":loanid};
     var b = json.encode(body);
+    print(b);
     var url = repy +  Globals.token;
     final response = await post(url,
         headers: {"Content-Type": "application/json; charset=UTF-8"}, body: b);
     if (response.statusCode == 200) {
-       final json = jsonDecode(response.body); 
-       Globals.success = json["success"];
-       return response.body;
+       final results = jsonDecode(response.body); 
+       return results;
     }
     else{
       print(response.statusCode);

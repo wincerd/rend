@@ -1,4 +1,4 @@
-import 'dart:convert';
+    import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rend/dashboard.dart';
 import 'package:rend/user.dart';
@@ -11,7 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<LoginPage> {
-  final TextEditingController _controller = TextEditingController();
+  
   TextEditingController user = new TextEditingController();
   TextEditingController pass = new TextEditingController();
   String msg = '';
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<LoginPage> {
                     decoration: InputDecoration(
                         contentPadding:
                             EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        hintText: 'Username'),
+                        hintText: 'Phone number'),
                   ),
                 ),
                 TextField(
@@ -87,9 +87,9 @@ class _MyHomePageState extends State<LoginPage> {
                   child: Text("Login"),
                   onPressed: () async {
                     Map a ={"username":user.text,"password":pass.text};
-                    var tex = await Api().all("http://176.58.113.106:80/api/login",a);
-                    print("tex $tex");
-                    var tMap = json.decode(tex);
+                    var logn = await Api().all("http://176.58.113.106:80/api/login",a);
+                    print("logn $logn");
+                    var tMap = json.decode(logn);
                     setState(() { 
                       usea = User.fromJson(tMap);
                       print(usea);
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<LoginPage> {
                       Globals.secondname = usea.secondname;
                       Globals.loanBalance = usea.loanBalance;
                       Globals.token =usea.token;
-                      Globals.blc = double.parse(Globals.loanBalance);
+                      Globals.blc = int.parse(Globals.loanBalance);
                       Navigator.push(
                         context,
                         MaterialPageRoute(

@@ -7,12 +7,14 @@ INJECTED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml
 MERGED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml:1:1-33:12
 MERGED from [:path_provider] /home/ed/Development/rend/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_macos] /home/ed/Development/rend/build/path_provider_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:sqflite] /home/ed/Development/rend/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-10:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/09be4c98f955b63e9a8cadeb6d33d870/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/b8b68c04ee72209a3beca37e17f7088d/fragment-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/f046f38cf99e9cbe4891b184ce64db19/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/0f0610cdcf96e6cfa9529b6a3246e3f6/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/e1bbce6b0d79e8479b70e7bd729bb743/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/6d35bbbe327ef689c582d1173367f0ed/media-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/28d99d5113324aa067757f8ca41a426f/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/ae13efc3dbae5c9ee58d4933337fcd21/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/5bfbe01745d2a29d4e7cd137b17143f4/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -51,6 +53,8 @@ INJECTED from /home/ed/Development/rend/android/app/src/debug/AndroidManifest.xm
 		ADDED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml:1:11-69
 application
 ADDED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml:8:5-31:19
+MERGED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [androidx.core:core:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/0a271e99b6771ad4a84318244d532fb7/core-1.0.0/AndroidManifest.xml:22:5-89
 MERGED from [androidx.core:core:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/0a271e99b6771ad4a84318244d532fb7/core-1.0.0/AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/52d4fecae8c1eb4103beef9198e64f51/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
@@ -107,10 +111,12 @@ MERGED from [:path_provider] /home/ed/Development/rend/build/path_provider/inter
 MERGED from [:path_provider] /home/ed/Development/rend/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_macos] /home/ed/Development/rend/build/path_provider_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_macos] /home/ed/Development/rend/build/path_provider_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] /home/ed/Development/rend/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] /home/ed/Development/rend/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/09be4c98f955b63e9a8cadeb6d33d870/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/09be4c98f955b63e9a8cadeb6d33d870/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/b8b68c04ee72209a3beca37e17f7088d/fragment-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/b8b68c04ee72209a3beca37e17f7088d/fragment-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/f046f38cf99e9cbe4891b184ce64db19/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
@@ -119,6 +125,8 @@ MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/ed/.gradle/c
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/0f0610cdcf96e6cfa9529b6a3246e3f6/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/e1bbce6b0d79e8479b70e7bd729bb743/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/e1bbce6b0d79e8479b70e7bd729bb743/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/6d35bbbe327ef689c582d1173367f0ed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/6d35bbbe327ef689c582d1173367f0ed/media-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/28d99d5113324aa067757f8ca41a426f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/28d99d5113324aa067757f8ca41a426f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/ed/.gradle/caches/transforms-2/files-2.1/ae13efc3dbae5c9ee58d4933337fcd21/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
@@ -165,10 +173,36 @@ INJECTED from /home/ed/Development/rend/android/app/src/debug/AndroidManifest.xm
 	android:minSdkVersion
 		INJECTED from /home/ed/Development/rend/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/ed/Development/rend/android/app/src/debug/AndroidManifest.xml
-uses-permission#android.permission.CAMERA
-ADDED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-65
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-80
 	android:name
-		ADDED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-62
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-78
+uses-permission#android.permission.CAMERA
+ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-65
+MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-65
+MERGED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-65
+	android:name
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-62
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-74
+	android:exported
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-82
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:75
+	android:resource
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-72
+	android:name
+		ADDED from [:image_picker] /home/ed/Development/rend/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
 uses-permission#android.permission.RECORD_AUDIO
 ADDED from [:camera] /home/ed/Development/rend/build/camera/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-71
 	android:name

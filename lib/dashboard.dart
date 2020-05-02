@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rend/Verify.dart';
 import 'package:rend/globals.dart';
 import 'package:rend/login.dart';
-import 'package:rend/appB.dart';
 
 class Rtn extends StatefulWidget {
   @override
@@ -18,19 +17,20 @@ class _RtnState extends State<Rtn> {
         onPressed: () {
           Navigator.pushReplacementNamed(context, '/borrow');
         },
-        child: Text("Borrow Loan", style: TextStyle(color: Colors.white)),
-        color: Colors.blueAccent,
+        child: Text(
+          "Borrow Loan",
+          style: TextStyle(color: Colors.blueAccent),
+        ),
       ),
     );
-    final btn2 = ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 10),
-      child: MaterialButton(
-        onPressed: () {
-          Navigator.pushReplacementNamed(context, '/repay');
-        },
-        child: Text("Pay loan", style: TextStyle(color: Colors.white)),
-        color: Colors.blueAccent,
-      ),
+    final btn2 = MaterialButton(
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, '/repay');
+      },
+      child: Text("Pay loan",
+          style: TextStyle(
+            color: Colors.blueAccent,
+          )),
     );
     if (Globals.blc > 0 == false) {
       return btn1;
@@ -41,8 +41,9 @@ class _RtnState extends State<Rtn> {
 }
 
 class Dash extends StatefulWidget {
-  Dash({this.username});
+  Dash({this.username, this.balance});
   final String username;
+  int balance;
   @override
   _DashState createState() => _DashState();
 }
@@ -50,6 +51,7 @@ class Dash extends StatefulWidget {
 class _DashState extends State<Dash> {
   @override
   Widget build(BuildContext context) {
+    var b = Globals.loanBalance;
     return SafeArea(
       child: Scaffold(
         drawer: Drawer(
@@ -102,43 +104,53 @@ class _DashState extends State<Dash> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Column(children: <Widget>[
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text("Loan Balance"),
-                                    SizedBox(
-                                      width: 95,
-                                    ),
-                                    Text((Globals.loanBalance).toString()),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text("Due date"),
-                                    SizedBox(
-                                      width: 80,
-                                    ),
-                                    Text("18/04/2022"),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ])
-                    ]),
-                    Rtn(),
+                    Column(
+                      children: <Widget>[
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text("Loan Balance"),
+                                      SizedBox(
+                                        width: 95,
+                                      ),
+                                      Text((b).toString()),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text("Due date"),
+                                      SizedBox(
+                                        width: 80,
+                                      ),
+                                      Text("18/04/2022"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ]),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Rtn(),
+                            ]),
+                      ],
+                    ),
                     SizedBox(
-                      height: 100,
+                      height: 50,
                     ),
                   ],
                 ),

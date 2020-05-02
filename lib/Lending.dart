@@ -5,9 +5,8 @@ import 'package:rend/globals.dart';
 import 'package:rend/appB.dart';
 import 'package:rend/Api.dart';
 import 'dart:async';
-import 'dart:convert';
 import 'package:rend/user.dart';
-
+import 'package:rend/dashboard.dart';
 
 class Borrow extends StatelessWidget {
 
@@ -63,18 +62,26 @@ class Borrow extends StatelessWidget {
               createAlertDialog(context);
             } else {
               var user = User.fromJson(Globals.userz);
-              var usernm= user.username;
               var userId = user.id;
               var phone = user.phoneNumber;
               var currency = "ksh";
-              Map tex = await Api().borrow(userId,phone.toString(),int.parse(firstName.text),
+              Map lend = await Api().borrow(userId,phone,int.parse(firstName.text),
               phone,currency);
-              if(tex["success"] == false ){
+              print("lend $lend");
+              if(lend["success"] == false ){
                 print("pay existing loan");
               }
               else{
-                Globals.loanBalance = tex["loanbalance"];
-                print("tex $tex");
+                Globals.loanBalance = (lend["loanbalance"]).toString();
+                print("lend $lend");
+                  Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Dash(
+                    balance: Globals.blc,
+                  ),
+                ),
+              );
               }
             }
           },

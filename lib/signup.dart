@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rend/Api.dart';
 import 'package:rend/login.dart';
-import 'package:rend/globals.dart';
-import 'dart:convert';
+
+
 
 class Signup extends StatelessWidget {
   TextEditingController firstName = new TextEditingController();
@@ -79,7 +79,7 @@ class Signup extends StatelessWidget {
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "number",
+          hintText: "Number",
           icon: Icon(Icons.phone),
         ));
     final loginButton = Material(
@@ -92,13 +92,11 @@ class Signup extends StatelessWidget {
           onPressed: () async {
             var num = (number.text);
             print("num,$num");
-            var a = await Api().signup(firstName.text, secondName.text,
+            Map a = await Api().signup(firstName.text, secondName.text,
                 lastName.text, email.text, num, password.text,num,id.text);
             print("response,$a");
-            var  aMap = json.decode(a);
-            print(aMap);
-            if (aMap.success == "true") {
-              print(a.message);
+            if (a["success"]== "true") {
+              print(a["message"]);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LoginPage()),

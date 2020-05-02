@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:rend/globals.dart';
 
-class V1 extends StatelessWidget {
+class V1 extends StatefulWidget {
+  @override
+  _V1State createState() => _V1State();
+}
+
+class _V1State extends State<V1>{
   TextEditingController firstName = new TextEditingController();
   TextEditingController lastName = new TextEditingController();
   TextEditingController secondName = new TextEditingController();
   TextEditingController idNumber = new TextEditingController();
   TextEditingController dob = new TextEditingController();
+  @override
+   void initState() {
+    
+    super.initState();
+  }
+
+void a () {
+    var fname = firstName.text;
+    var lname = lastName.text;
+    var sec =  secondName.text;
+    var d = dob.text;
+    Globals.z = {"name":fname,"last":lname};
+  }
+
 
   @override
   Widget build(BuildContext context) {
