@@ -11,9 +11,8 @@ class Rtn extends StatefulWidget {
 class _RtnState extends State<Rtn> {
   @override
   Widget build(BuildContext context) {
-    final btn1 = ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 10),
-      child: MaterialButton(
+    final btn1 =
+       MaterialButton(
         onPressed: () {
           Navigator.pushReplacementNamed(context, '/borrow');
         },
@@ -21,7 +20,7 @@ class _RtnState extends State<Rtn> {
           "Borrow Loan",
           style: TextStyle(color: Colors.blueAccent),
         ),
-      ),
+      
     );
     final btn2 = MaterialButton(
       onPressed: () {
@@ -101,54 +100,39 @@ class _DashState extends State<Dash> {
             children: <Widget>[
               Card(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  // mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Column(
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text("Loan Balance"),
-                                      SizedBox(
-                                        width: 95,
-                                      ),
-                                      Text((b).toString()),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text("Due date"),
-                                      SizedBox(
-                                        width: 80,
-                                      ),
-                                      Text("18/04/2022"),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ]),
+                        Text("Loan Balance"),
                         SizedBox(
-                          height: 50,
+                          width: 100,
                         ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Rtn(),
-                            ]),
+                        Text((b).toString()),
                       ],
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Due date"),
+                        SizedBox(
+                          width: 80,
+                        ),
+                        Text("18/04/2022"),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Rtn(),
+                        ]),
                     SizedBox(
                       height: 50,
                     ),

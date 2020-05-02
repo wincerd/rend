@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:rend/globals.dart';
 
 class V1 extends StatefulWidget {
+  final ValueChanged<String> child2Action;
+
+const V1({
+    Key key,
+
+    this.child2Action,
+    
+  }) : super(key: key);
+
   @override
   _V1State createState() => _V1State();
 }
@@ -17,17 +26,7 @@ class _V1State extends State<V1>{
     
     super.initState();
   }
-
-void a () {
-    var fname = firstName.text;
-    var lname = lastName.text;
-    var sec =  secondName.text;
-    var d = dob.text;
-    Globals.z = {"name":fname,"last":lname};
-  }
-
-
-  @override
+    @override
   Widget build(BuildContext context) {
     final firstname = TextFormField(
       textCapitalization: TextCapitalization.words,

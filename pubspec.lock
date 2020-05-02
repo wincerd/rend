@@ -99,13 +99,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.0.9"
-  camera:
-    dependency: "direct main"
-    description:
-      name: camera
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.7+4"
   charcode:
     dependency: transitive
     description:
@@ -181,6 +174,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -241,7 +241,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.12+1"
+    version: "0.6.5+3"
   io:
     dependency: transitive
     description:

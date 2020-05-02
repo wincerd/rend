@@ -17,7 +17,7 @@ class UploadImageDemo extends StatefulWidget {
 class UploadImageDemoState extends State<UploadImageDemo> {
   //
   static final String uploadEndPoint =
-      'http://localhost/flutter_test/upload_image.php';
+      'http://176.58.113.106/api/upload';
   Future<File> file;
   String status = '';
   String base64Image;
@@ -30,7 +30,12 @@ class UploadImageDemoState extends State<UploadImageDemo> {
     });
     setStatus('');
   }
- 
+  chooseImage2() {
+    setState(() {
+      file = ImagePicker.pickImage(source: ImageSource.camera);
+    });
+    setStatus('');
+  }
   setStatus(String message) {
     setState(() {
       status = message;
@@ -43,8 +48,8 @@ class UploadImageDemoState extends State<UploadImageDemo> {
       setStatus(errMessage);
       return;
     }
-    String fileName = tmpFile.path.split('/').last;
-    upload(fileName);
+    String fileName = tmpFile.path;
+    uploadImage(fileName);
   }
  
   upload(String fileName) {
@@ -56,6 +61,15 @@ class UploadImageDemoState extends State<UploadImageDemo> {
     }).catchError((error) {
       setStatus(error);
     });
+  }
+
+    Future<String> uploadImage(filename) async {
+    var url = uploadEndPoint;
+    var request = http.MultipartRequest('POST', Uri.parse(url));
+    request.files.add(await http.MultipartFile.fromPath('picture', filename));
+    var res = await request.send();
+    print(res.reasonPhrase);
+    return res.reasonPhrase;
   }
  
   Widget showImage() {
@@ -90,9 +104,6 @@ class UploadImageDemoState extends State<UploadImageDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Upload Image Demo"),
-      ),
       body: Container(
         padding: EdgeInsets.all(30.0),
         child: Column(
@@ -104,6 +115,10 @@ class UploadImageDemoState extends State<UploadImageDemo> {
             ),
             SizedBox(
               height: 20.0,
+            ),
+            OutlineButton(
+              onPressed: chooseImage2,
+              child: Text('Choose Image from cam'),
             ),
             showImage(),
             SizedBox(

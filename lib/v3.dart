@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rend/signup.dart';
 
 class V3 extends  StatelessWidget {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
@@ -77,10 +78,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       icon: Icon(Icons.arrow_downward),
       iconSize: 24,
       elevation: 16,
-      style: TextStyle(color: Colors.deepPurple),
+      style: TextStyle(color: Colors.blueAccent),
       underline: Container(
         height: 2,
-        color: Colors.deepPurpleAccent,
+        color: Colors.blueAccent,
       ),
       onChanged: (String newValue) {
         setState(() {
@@ -109,14 +110,15 @@ class _EduWidget extends State<EduWidget> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+    
       value: dropdownValue,
       icon: Icon(Icons.arrow_downward),
-      iconSize: 24,
-      elevation: 16,
-      style: TextStyle(color: Colors.deepPurple),
+      iconSize: 20,
+      elevation: 10,
+      style: TextStyle(color: Colors.blueAccent),
       underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+        height: 1,
+        color: Colors.blueAccent,
       ),
       onChanged: (String newValue) {
         setState(() {
@@ -127,7 +129,7 @@ class _EduWidget extends State<EduWidget> {
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Text(value ,style: style,),
         );
       }).toList(),
     );
