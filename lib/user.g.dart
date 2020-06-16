@@ -19,7 +19,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
     loanBalance: json['loanBalance'] as String,
     token: json['token'] as String,
     id: json['id'] as int,
-  )..loanid = json['loanid'] as String;
+  )..loanid = json['loanid'] as int;
 }
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -63,3 +63,4 @@ Map<String, dynamic> _$UserSessionToJson(UserSession instance) =>
       'amountBorrowed': instance.amountBorrowed,
       'amountRepaid': instance.amountRepaid,
     };
+

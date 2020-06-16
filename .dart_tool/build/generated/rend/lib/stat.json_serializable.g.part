@@ -1,0 +1,19 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Satment _$SatmentFromJson(Map<String, dynamic> json) {
+  return Satment(
+    json['amount'] as int,
+    json['balance'] as int,
+    json['dt'] as String,
+    json['remarks'] as String,
+  );
+}
+
+Map<String, dynamic> _$SatmentToJson(Satment instance) => <String, dynamic>{
+      'amount': instance.amount,
+      'balance': instance.balance,
+      'dt': instance.dt,
+      'remarks': instance.remarks,
+    };

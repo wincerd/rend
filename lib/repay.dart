@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rend/draw.dart';
 import 'package:rend/globals.dart';
-import 'package:rend/appB.dart';
 import 'package:rend/Api.dart';
 import 'dart:async';
 import 'package:rend/user.dart';
@@ -46,9 +46,9 @@ class Repay extends StatelessWidget {
       controller: firstName,
       decoration: const InputDecoration(
         border: UnderlineInputBorder(),
-        icon: Icon(Icons.person),
-        hintText: 'Whats your first name?',
-        labelText: 'First Name *',
+        icon: Icon(Icons.monetization_on),
+        hintText: 'Amount you want to repay?',
+        labelText: 'Amount*',
       ),
     );
     final reqestBtn = Material(
@@ -78,7 +78,7 @@ class Repay extends StatelessWidget {
               );
             } else {
               Globals.loanBalance = (rep["balance"]).toString();
-              print(Globals.loanBalance);
+              Globals.blc = int.parse(Globals.loanBalance);
               print("rep $rep");
                Navigator.push(
                 context,
@@ -102,7 +102,7 @@ class Repay extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Repay'),
       ),
-      drawer: Appb(),
+      drawer: Dra("Repayment"),
       body: Column(children: <Widget>[
         SizedBox(
           height: 50,

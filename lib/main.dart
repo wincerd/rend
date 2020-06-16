@@ -6,7 +6,7 @@ import 'package:rend/globals.dart';
 import 'package:rend/Verify.dart';
 import 'package:rend/Lending.dart';
 import 'package:rend/repay.dart';
-
+import 'package:rend/transactions.dart';
 
 void main() => runApp(new MyApp());
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'hifadhi',
+      title: 'rend',
       home: new LoginPage(),
       routes: <String, WidgetBuilder>{
         '/AgentPage': (BuildContext context) => new Dash(
@@ -30,8 +30,12 @@ class MyApp extends StatelessWidget {
         '/verify':(BuildContext context) => new Verify(),
         '/borrow':(BuildContext context) => new Borrow(),
         '/repay':(BuildContext context) => new Repay(), 
+        '/transact':(BuildContext context) => new Transact()
       },
+      
     );
+        
+
   }
 }
 

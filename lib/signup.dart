@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rend/Api.dart';
 import 'package:rend/login.dart';
 
+class Signup extends StatefulWidget {
+  @override
+  _SignupState createState() => _SignupState();
+}
 
-
-class Signup extends StatelessWidget {
+class _SignupState extends State<Signup> {
   TextEditingController firstName = new TextEditingController();
   TextEditingController password = new TextEditingController();
   TextEditingController lastName = new TextEditingController();
@@ -12,6 +15,55 @@ class Signup extends StatelessWidget {
   TextEditingController number = new TextEditingController();
   TextEditingController email = new TextEditingController();
   TextEditingController id = new TextEditingController();
+
+  int _state = 0;
+
+  Future<String> createAlertDialog(
+      BuildContext context, String lvl, String msg) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(lvl),
+          titlePadding: EdgeInsets.all(20.0),
+          content: Text(msg),
+          contentPadding: EdgeInsets.all(20.0),
+          actions: <Widget>[
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/borrow');
+              },
+              child: Text("cancle"),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/borrow');
+              },
+              child: Text("ok"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<String> createprogDialog(BuildContext context, String lvl) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CircularProgressIndicator(
+          semanticsLabel: lvl,
+        );
+      },
+    );
+  }
+
+  show() {
+    if (_state == 1) {
+      return createprogDialog(context, "loading");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final emailField = TextFormField(
@@ -92,15 +144,28 @@ class Signup extends StatelessWidget {
           onPressed: () async {
             var num = (number.text);
             print("num,$num");
+            setState(() {
+              _state = 1;
+            });
+
             Map a = await Api().signup(firstName.text, secondName.text,
-                lastName.text, email.text, num, password.text,num,id.text);
+                lastName.text, email.text, num, password.text, num, id.text);
             print("response,$a");
-            if (a["success"]== "true") {
+            if (a["success"] == "true") {
+              setState(() {
+                _state = 0;
+              });
+              createAlertDialog(context, "alert", "Siged up successfully");
               print(a["message"]);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LoginPage()),
               );
+            } else {
+              String msg = a["mesage"]
+                  ? null
+                  : "Sign up not  successfully please try again later";
+              createAlertDialog(context, "warning", msg);
             }
           },
           child: Text(
@@ -120,13 +185,6 @@ class Signup extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // SizedBox(
-                //   height: 10,
-                //   // child: Image.asset(
-                //   //   "images/bank.png",
-                //   //   fit: BoxFit.contain,
-                //   // ),
-                // ),
                 SizedBox(height: 15.0),
                 emailField,
                 SizedBox(height: 15.0),

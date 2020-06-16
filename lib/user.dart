@@ -1,5 +1,3 @@
-
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
@@ -17,7 +15,7 @@ class User {
   String loanBalance;
   String token;
   int id;
-  String loanid;
+  int loanid;
 
   User(
       {this.firstname,
@@ -61,3 +59,4 @@ class UserSession {
       _$UserSessionFromJson(json);
   Map<String, dynamic> toJson() => _$UserSessionToJson(this);
 }
+

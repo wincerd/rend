@@ -13,5 +13,9 @@ class Globals {
   static Map userz;
   static String loanid;
   static Map z;
+  static String date;
+  static Map statme;
+  static int mounty;
+  static String timeframe;
 
 }
